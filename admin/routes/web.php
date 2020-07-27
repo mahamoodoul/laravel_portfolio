@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@HomeIndex');
 Route::get('/visitor','VisitorController@VisitorIndex');
+Route::get('/services','ServiceController@ServiceIndex');
+Route::get('/getservicesdata','ServiceController@ServicecData');
