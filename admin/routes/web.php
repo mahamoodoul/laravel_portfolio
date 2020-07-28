@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','HomeController@HomeIndex');
-Route::get('/visitor','VisitorController@VisitorIndex');
+Route::get('/', 'HomeController@HomeIndex');
+Route::get('/visitor', 'VisitorController@VisitorIndex');
 
 
 //admin service management
 
-Route::get('/services','ServiceController@ServiceIndex');
-Route::get('/getservicesdata','ServiceController@ServicecData');
-Route::post('/servicedel','ServiceController@ServicecDelete');
-Route::post('/servicedetails','ServiceController@ServiceDetailsEdit');
-Route::post('/serviceupdate','ServiceController@ServicecUpdate');
+Route::get('/services', 'ServiceController@ServiceIndex');
+Route::get('/getservicesdata', 'ServiceController@ServicecData');
+Route::post('/servicedel', 'ServiceController@ServicecDelete');
+Route::post('/servicedetails', 'ServiceController@ServiceDetailsEdit');
+Route::post('/serviceupdate', 'ServiceController@ServicecUpdate');
+Route::post('/addservice', 'ServiceController@ServicecAdd');

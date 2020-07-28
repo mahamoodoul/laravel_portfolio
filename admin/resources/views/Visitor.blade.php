@@ -16,20 +16,34 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($visitorData as $visitor)
-                        <tr>
-                            <th class="th-sm">{{$visitor['id']}}</th>
-                            <th class="th-sm">{{$visitor['ip_address']}}</th>
-                            <th class="th-sm">{{$visitor['visit_time']}}</th>
-                        </tr>
+                        @foreach($visitorData as $visitor)
+                            <tr>
+                                <th class="th-sm">{{ $visitor['id'] }}</th>
+                                <th class="th-sm">{{ $visitor['ip_address'] }}</th>
+                                <th class="th-sm">{{ $visitor['visit_time'] }}</th>
+                            </tr>
                         @endforeach
-                       
-                        
+
+
                     </tbody>
                 </table>
 
             </div>
         </div>
     </div>
+
+@endsection
+
+@section('script')
+    <script type="text/javascript">
+
+
+        //visitor page table
+        $(document).ready(function() {
+            $('#VisitorDt').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+
+    </script>
 
 @endsection
