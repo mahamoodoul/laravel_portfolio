@@ -17,3 +17,4 @@ Route::get('/','HomeController@HomeIndex');
 Route::get('/visitor','VisitorController@VisitorIndex');
 Route::get('/services','ServiceController@ServiceIndex');
 Route::get('/getservicesdata','ServiceController@ServicecData');
+Route::post('/servicedel','ServiceController@ServicecDelete');

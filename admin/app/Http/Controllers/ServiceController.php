@@ -12,8 +12,21 @@ class ServiceController extends Controller
         return view("Services");
     }
 
-    public function ServicecData(){
-        $result=json_decode(ServiceModel::all());
+    public function ServicecData()
+    {
+        $result = json_decode(ServiceModel::all());
         return $result;
+    }
+
+    public function ServicecDelete(Request $request)
+    {
+
+        $id = $request->input("id");
+        $result = ServiceModel::where('id', '=', $id)->delete();
+        if($result== true){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 }
