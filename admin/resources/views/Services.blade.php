@@ -132,7 +132,7 @@
 @section('script')
 
     <script type="text/javascript">
-        getservicesdata();  //when page will load this method also will run
+        getservicesdata(); //when page will load this method also will run
 
         // for servcie table
 

@@ -18,10 +18,15 @@ Route::get('/visitor', 'VisitorController@VisitorIndex');
 
 
 //admin service management
-
 Route::get('/services', 'ServiceController@ServiceIndex');
 Route::get('/getservicesdata', 'ServiceController@ServicecData');
 Route::post('/servicedel', 'ServiceController@ServicecDelete');
 Route::post('/servicedetails', 'ServiceController@ServiceDetailsEdit');
 Route::post('/serviceupdate', 'ServiceController@ServicecUpdate');
 Route::post('/addservice', 'ServiceController@ServicecAdd');
+
+
+
+//admin panel courses management
+Route::get('/courses', 'CoursesController@CourseIndex');
+Route::get('/getcourses', 'CoursesController@CoursesData');
