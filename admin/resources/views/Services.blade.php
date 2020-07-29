@@ -164,6 +164,8 @@
                             ).appendTo('#service_table');
                         });
 
+
+                        
                         //service table delete icon click
                         $(".delData").click(function() {
                             var id = $(this).data('id');
