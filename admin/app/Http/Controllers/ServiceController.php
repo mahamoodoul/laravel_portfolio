@@ -14,7 +14,7 @@ class ServiceController extends Controller
 
     public function ServicecData()
     {
-        $result = json_decode(ServiceModel::all());
+        $result = json_decode(ServiceModel::orderBy('id','desc')->get());
         return $result;
     }
 

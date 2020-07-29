@@ -10,7 +10,7 @@
 
                 <button id="addbtn" class="btn btn-sm btn-danger my-3">Add New</button>
 
-                <table id="" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="serviceDataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th class="th-sm">Image</th>
@@ -55,7 +55,7 @@
 
                 <div class="modal-body p-3 text-center">
                     <h5 class="mt-4">Do you want to Delete</h5>
-                    <h5 id="serviceDeleteId" class="mt-4"></h5>
+                    <h5 id="serviceDeleteId" class="mt-4 d-none"></h5>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">No</button>
@@ -77,7 +77,7 @@
                     <h5>Edit your Service Details</h5>
 
                     <div id="serviceEditForm" class="d-none w-100">
-                        <h5 id="serviceEditId" class="mt-4"></h5>
+                        <h5 id="serviceEditId" class="mt-4 d-none"></h5>
                         <input type="text" id="servicename" class="form-control mb-4" placeholder="Service Name">
                         <input type="text" id="servicedes" class="form-control mb-4" placeholder="Service Description">
                         <input type="text" id="serviceimg" class="form-control mb-4" placeholder="Image Link">
@@ -147,6 +147,8 @@
                         $('#mainDiv').removeClass('d-none');
                         $('#loadDiv').addClass('d-none');
 
+
+                        $('#serviceDataTable').DataTable().destroy();
                         $('#service_table').empty();
 
 
@@ -165,7 +167,7 @@
                         });
 
 
-                        
+
                         //service table delete icon click
                         $(".delData").click(function() {
                             var id = $(this).data('id');
@@ -175,11 +177,6 @@
                             $('#deleteModal').modal('show');
 
                         })
-
-
-
-
-
 
 
                         //edit data using modal
@@ -192,6 +189,9 @@
                             $('#editModal').modal('show');
 
                         })
+
+                        $('#serviceDataTable').DataTable({"order":false});
+                        $('.dataTables_length').addClass('bs-select');
 
 
                     } else {
