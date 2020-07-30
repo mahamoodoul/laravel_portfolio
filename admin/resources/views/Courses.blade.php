@@ -168,13 +168,6 @@
         getCoursesdata();
 
 
-
-
-
-
-
-
-
         // for Courses table
 
         function getCoursesdata() {
@@ -228,6 +221,8 @@
                             courseeUpdateDetails(id);
 
                         })
+
+                        
                         $('#courseDataTable').DataTable({
                             "order": false
                         });
@@ -255,7 +250,7 @@
 
 
 
-        //Courses update modal save button
+        //Courses Add modal save button
 
         $('#CourseAddConfirmBtn').click(function() {
 
@@ -403,7 +398,7 @@
 
         }
 
-        //each courses  Details data show for edit
+//each courses  Details data show for edit
 
         function courseeUpdateDetails(id) {
 

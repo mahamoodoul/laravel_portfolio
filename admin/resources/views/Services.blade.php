@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div id="mainDiv" class="container d-none">
+    <div id="mainDiv" class="container-fluid d-none">
         <div class="row">
             <div class="col-md-12 p-5">
 
@@ -156,7 +156,7 @@
                         $.each(dataJSON, function(i, item) {
                             $('<tr>').html(
 
-                                "<td><img class='table-img' src=" + dataJSON[i].service_img + "> </td>" +
+                                "<td><img width='200px' height='80' class='table-img' src=" + dataJSON[i].service_img + "> </td>" +
                                 "<td>" + dataJSON[i].service_name + " </td>" +
                                 "<td>" + dataJSON[i].service_des + " </td>" +
                                 "<td><a class='editData' data-id=" + dataJSON[i].id +
