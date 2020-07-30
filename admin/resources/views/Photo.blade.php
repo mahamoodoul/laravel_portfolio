@@ -79,5 +79,22 @@
 
         });
 
+
+        LoadPhoto();
+
+        function LoadPhoto() {
+            axios.get('/PhotoJSON').then(function(response) {
+
+                $.each(response.data, function(i, item) {
+                    $("<div class='col-md-3 p-1'>").html(
+                        "<img class='imgOnRow' src=" + item['location'] + ">"
+                    ).appendTo('.photoRow');
+                });
+
+            }).catch(function(error) {
+
+            })
+        }
+
     </script>
 @endsection
