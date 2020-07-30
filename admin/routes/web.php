@@ -44,3 +44,23 @@ Route::post('/projectdelete', 'ProjectsController@ProjectsDelete');
 Route::post('/projectdetails', 'ProjectsController@ProjectsDetailEdit');
 Route::post('/projectupdate', 'ProjectsController@ProjectsUpdate');
 Route::post('/addproject', 'ProjectsController@ProjectsAdd');
+
+
+
+//Message panel management
+
+Route::get('/message', 'MessageController@MessageIndex');
+Route::get('/getmessagedata', 'MessageController@MessageData');
+Route::post('/deletemessage', 'MessageController@MessageDelete');
+
+
+
+//Review panel Mangement
+Route::get('/review', 'ReviewController@ReviewIndex');
+Route::get('/getReviewtdata', 'ReviewController@ReviewData');
+Route::post('/Reviewtdelete', 'ReviewController@ReviewDelete');
+Route::post('/Reviewtdetails', 'ReviewController@ReviewDetailsEdit');
+Route::post('/Reviewtupdate', 'ReviewController@ReviewUpdate');
+Route::post('/addReview', 'ReviewController@ReviewAdd');
+
+
