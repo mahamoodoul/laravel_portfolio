@@ -8,27 +8,33 @@ use Illuminate\Http\Request;
 
 class PhotoController extends Controller
 {
-  function PhotoIndex(){
+    function PhotoIndex()
+    {
 
-      return view('Photo');
-  }
-
-    function PhotoJSON(){
-       return PhotoModel::all();
+        return view('Photo');
     }
 
 
-    function PhotoUpload(Request $request){
-        var_dump("hello");
-        die();
-      $photoPath=  $request->file('photo')->store('public');
 
-        $photoName=(explode('/',$photoPath))[1];
+    function PhotoJSON()
+    {
+        return PhotoModel::all();
+    }
 
-        $host=$_SERVER['HTTP_HOST'];
-        $location="http://".$host."/storage/".$photoName;
 
-      $result= PhotoModel::insert(['location'=>$location]);
-      return $result;
+
+    public function uploadImage(Request $request)
+    {
+
+
+        $photoPath =  $request->file('photo')->store('public');
+
+        $photoName = (explode('/', $photoPath))[1];
+
+        $host = $_SERVER['HTTP_HOST'];
+        $location = "http://" . $host . "/storage/" . $photoName;
+
+        $result = PhotoModel::insert(['location' => $location]);
+        return $result;
     }
 }

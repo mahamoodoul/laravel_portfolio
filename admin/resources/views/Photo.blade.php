@@ -9,7 +9,7 @@
                     class="btn my-3 btn-sm btn-danger">Add New </button>
             </div>
         </div>
-        <div class="row photoRow">
+        <div id="photogallery" class="row photoRow">
 
         </div>
     </div>
@@ -44,6 +44,9 @@
 @endsection
 @section('script')
     <script type="text/javascript">
+        LoadPhoto();
+
+
         $('#imgInput').change(function() {
             var reader = new FileReader();
             reader.readAsDataURL(this.files[0]);
@@ -53,19 +56,20 @@
             }
         })
 
-
         $('#SavePhoto').on('click', function() {
             $('#SavePhoto').html("<div class='spinner-border spinner-border-sm' role='status'></div>")
             var PhotoFile = $('#imgInput').prop('files')[0];
             var formData = new FormData();
             formData.append('photo', PhotoFile);
-            console.log(formData);
-            alert(formData);
-            axios.post("/uploadPhoto", formData).then(function(response) {
+
+
+            axios.post("/imageup", formData).then(function(response) {
+
                 if (response.status == 200 && response.data == 1) {
 
                     $('#PhotoModal').modal('hide');
                     $('#SavePhoto').html('Save');
+                    LoadPhoto();
                     toastr.success('Photo Upload Success');
                 } else {
                     $('#PhotoModal').modal('hide');
@@ -80,11 +84,10 @@
         });
 
 
-        LoadPhoto();
 
         function LoadPhoto() {
             axios.get('/PhotoJSON').then(function(response) {
-
+                $('#photogallery').empty();
                 $.each(response.data, function(i, item) {
                     $("<div class='col-md-3 p-1'>").html(
                         "<img class='imgOnRow' src=" + item['location'] + ">"

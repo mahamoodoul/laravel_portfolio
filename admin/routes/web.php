@@ -73,6 +73,6 @@ Route::get('/logout', 'LoginController@onLogout');
 
 
 // Admin Photo Gallery
-Route::get('/Photo', 'PhotoController@PhotoIndex')->middleware('loginCheck');;
-Route::post('/uploadPhoto', 'PhotoController@PhotoUpload')->middleware('loginCheck');;
-Route::get('/PhotoJSON', 'PhotoController@PhotoJSON')->middleware('loginCheck');;
+Route::get('/Photo', 'PhotoController@PhotoIndex')->middleware('loginCheck');
+Route::post('/imageup', 'PhotoController@uploadImage')->middleware('loginCheck');
+Route::get('/PhotoJSON', 'PhotoController@PhotoJSON')->middleware('loginCheck');
